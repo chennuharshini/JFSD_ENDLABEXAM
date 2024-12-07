@@ -1,0 +1,51 @@
+//Device.java
+package com.klef.jfsd.exam;
+import javax.persistence.*;
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Device {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String brand;
+    private String model;
+    private double price;
+
+    // Getters and Setters
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
+    public String getBrand() { return brand; }
+    public void setBrand(String brand) { this.brand = brand; }
+    public String getModel() { return model; }
+    public void setModel(String model) { this.model = model; }
+    public double getPrice() { return price; }
+    public void setPrice(double price) { this.price = price; }
+}
+//Smartphone.java
+package com.klef.jfsd.exam;
+import javax.persistence.*;
+@Entity
+public class Smartphone extends Device {
+    private String operatingSystem;
+    private String cameraResolution;
+
+    // Getters and Setters
+    public String getOperatingSystem() { return operatingSystem; }
+    public void setOperatingSystem(String operatingSystem) { this.operatingSystem = operatingSystem; }
+    public String getCameraResolution() { return cameraResolution; }
+    public void setCameraResolution(String cameraResolution) { this.cameraResolution = cameraResolution; }
+}
+//Tablet.java
+package com.klef.jfsd.exam;
+import javax.persistence.*;
+@Entity
+public class Tablet extends Device {
+    private String screenSize;
+    private String batteryLife;
+
+    // Getters and Setters
+    public String getScreenSize() { return screenSize; }
+    public void setScreenSize(String screenSize) { this.screenSize = screenSize; }
+    public String getBatteryLife() { return batteryLife; }
+    public void setBatteryLife(String batteryLife) { this.batteryLife = batteryLife; }
+}
