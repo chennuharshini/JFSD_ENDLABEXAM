@@ -1,0 +1,10 @@
+src/main/java
+    └── com.klef.jfsd.exam
+        ├── Device.java
+        ├── Smartphone.java
+        ├── Tablet.java
+        ├── HibernateUtil.java
+        └── ClientDemo.java
+src/main/resources
+    └── hibernate.cfg.xml
+pom.xml
