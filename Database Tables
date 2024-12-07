@@ -1,0 +1,41 @@
+ //1. Base Table: Device
+CREATE TABLE Device (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    brand VARCHAR(255) NOT NULL,
+    model VARCHAR(255) NOT NULL,
+    price DOUBLE NOT NULL
+);
+//2. Subclass Table: Smartphone
+CREATE TABLE Smartphone (
+    id INT PRIMARY KEY, -- Foreign key referencing Device
+    operatingSystem VARCHAR(255) NOT NULL,
+    cameraResolution VARCHAR(255) NOT NULL,
+    CONSTRAINT fk_smartphone_device FOREIGN KEY (id) REFERENCES Device (id)
+);
+//3.Subclass Table:Tablet
+CREATE TABLE Tablet (
+    id INT PRIMARY KEY, -- Foreign key referencing Device
+    screenSize VARCHAR(255) NOT NULL,
+    batteryLife VARCHAR(255) NOT NULL,
+    CONSTRAINT fk_tablet_device FOREIGN KEY (id) REFERENCES Device (id)
+);
+//Inserting Sample Data
+//Insert into Device Table:
+INSERT INTO Device (brand, model, price) VALUES 
+('Generic', 'Model D', 300.00);
+
+//Insert into Smartphone Table:
+INSERT INTO Device (brand, model, price) VALUES 
+('Samsung', 'Galaxy S23', 1000.00);
+
+INSERT INTO Smartphone (id, operatingSystem, cameraResolution) VALUES 
+(LAST_INSERT_ID(), 'Android', '108 MP');
+
+//Insert into Tablet Table:
+INSERT INTO Device (brand, model, price) VALUES 
+('Apple', 'iPad Pro', 1200.00);
+
+INSERT INTO Tablet (id, screenSize, batteryLife) VALUES 
+(LAST_INSERT_ID(), '12.9 inches', '10 hours');
+
+
